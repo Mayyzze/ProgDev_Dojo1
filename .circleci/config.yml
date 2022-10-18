@@ -10,8 +10,6 @@ jobs:
 
       # Download and cache dependencies
     
-      - run: npm audit
-
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -24,6 +22,8 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: npm audit
 
       # run tests!
       - run: npm run test
