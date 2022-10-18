@@ -9,6 +9,9 @@ jobs:
       - checkout
 
       # Download and cache dependencies
+    
+      - run: npm audit
+
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
